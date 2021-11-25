@@ -76,6 +76,12 @@ foreach($areas as $area => $cities)
 }
 ?>
 
+<br>
+<hr>
+<br>
+
+<!-- задание №4 -->
+
 
 
 
