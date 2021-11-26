@@ -85,7 +85,6 @@
 ?>
 
 <hr>
-
 <!-- задание №5 -->
 <h2>Задание №5</h2>
 
@@ -104,13 +103,48 @@
 
 <?php 
 
+  $menu = [
+    "Главная",
+    "Каталог" => ["Одежда", "Обувь", "Акксесуары"],
+    "Акции" => ["Вчера", "Позавчера", "Декабре"],
+    "О нас" => ["Руководство" => ["Директор", "Продажники" => ["текст"]]]
+  ]; 
 
+  echo "<ul>";
 
+  function bildMenu ($item) {
+    foreach($item as $keyLink => $valueLink) {
+  
+      if(!is_array($valueLink)) {
 
+        echo "<li>$item[$keyLink]</li>";
+
+      } else {
+        echo "<li>$keyLink</li>";
+  
+        echo "<ul>";
+        
+          foreach($valueLink as $key => $value) {
+            if (!is_array($value)) {
+              echo "<li>$value</li>";
+            } else {
+              echo "<li>$key</li>";
+              echo "<ul>";
+              echo bildMenu($value);
+              echo "</ul>";
+            }
+          }
+        echo "</ul>";
+      }
+    }
+  }
+    
+  echo bildMenu ($menu);
+
+  echo "</ul>";
 ?>
-<hr>
 
-
+<hr> 
 <!-- задание №7 -->
 <h2>Задание №7</h2>
 
