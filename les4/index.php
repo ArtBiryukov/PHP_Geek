@@ -1,3 +1,9 @@
+<?php 
+
+include "config.php"; 
+include "load.php"; 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,21 +16,16 @@
 </head>
 <body>
   <div class="body-content">
-  <?php 
-    $images = scandir("img");
-
-  for($i = 2; $i < count($images); $i++) { ?>
-    <a href="full.php?file=<?= "$images[$i]"?>"><img class="small-photo photo" src="img/<?= "$images[$i]"?>" alt=""></a>
-  <?php 
-  }?>  
-
+  <?php for($i = 0; $i < count($images); $i++) { ?>
+    <a href="full.php?file=<?= DIR_BIG.$images[$i] ?>">
+      <img class="small-photo photo" src="<?= DIR_SMALL.$images[$i] ?>" alt="">
+    </a><?php } ?>
   </div>
-
-
-
- <form action="#" method="get">
-
-
+ 
+  <form action=""  method="POST" enctype="multipart/form-data">
+    <p>Добавить файл:</p><input type="file" name="photo"> 
+    <button type="submit" name="send">ЗАГРУЗИТЬ</button> <br>
+    <span><?= $message?></span>
  </form>
 
 </body>
