@@ -23,16 +23,7 @@
 </head>
 <body>
 
-  <header class="header">
-      <div class="content conent-header">
-        <div class="header-left">
-          <a href="index.php" class="header-logo">AutoCar Shop</a> 
-        </div>
-        <div class="header-right">
-          <a href="#"><ion-icon name="enter-outline"></ion-icon>Вход в кабинет</a>
-        </div>
-      </div>
-  </header>
+  <?php include_once "modules/header.php";?>
 
   <main class='main content'>
     <h2 class="items-titel">Карточка автомобиля <?= $image['title'] ?></h2>
@@ -58,14 +49,10 @@
       <a class="back-button" href="<?= $_SERVER['HTTP_REFERER']?>"><ion-icon name="arrow-back-outline"></ion-icon> Назад</a>
   </main>
 
-  <footer class='footer'>
-      <div class="content">
-        <p>Copyright © <?php echo date("Y"); ?> <span>by <a href="https://github.com/ArtBiryukov">Art.Biryukov</a> </span></p>
-      </div>
-  </footer>
-
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<?php 
+  include_once "modules/footer.php";
+  include_once "modules/scripts.php";
+?>
 
 </body>
 </html>

@@ -9,21 +9,12 @@ include_once "config.php";
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <title>GB php Lesson5</title>
+  <title>GB php Lesson6</title>
 
 </head>
 <body>
 
-  <header class="header">
-      <div class="content conent-header">
-        <div class="header-left">
-          <a href="#" class="header-logo">AutoCar Shop</a> 
-        </div>
-        <div class="header-right">
-          <a href="index.php"><ion-icon name="enter-outline"></ion-icon> Вход в кабинет</a>
-        </div>
-      </div>
-  </header>
+<?php include_once "modules/header.php";?>
 
   <main class='main content'>
     <h2 class="items-titel">Каталог автомобилей</h2>
@@ -35,7 +26,7 @@ include_once "config.php";
         while($data = mysqli_fetch_assoc($table)) { ?>
           <div class="item-content">
             <a class="item-link" href="full.php?id=<?= $data['id'] ?>">
-              <img class="small-photo photo" src="<?= DIR_SMALL.$data['url_images'] ?>" alt="<?= $data['title'] ?>">
+              <img class="small-photo photo" src="<?= DIR_SMALL.$data['url_images'] ?>" title="<?= $data['title'] ?>" alt="<?= $data['title'] ?>">
             </a>
 
             <div class="item-description">
@@ -53,14 +44,10 @@ include_once "config.php";
     </div>
   </main>
 
-  <footer class='footer'>
-      <div class="content">
-        <p>Copyright © <?php echo date("Y"); ?> <span>by <a href="https://github.com/ArtBiryukov">Art.Biryukov</a> </span></p>
-      </div>
-  </footer>
-
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<?php 
+  include_once "modules/footer.php";
+  include_once "modules/scripts.php";
+?>
 
 </body>
 </html>
