@@ -13,21 +13,22 @@
 </head>
 <body>
   <?php
-    if (isset($_GET['a'])) {
-      $a = (int)($_GET['a']);
-    } else {
-      $a = 10;
-    }
 
-    if (isset($_GET['b'])) {
-      $b = (int)($_GET['b']);
-    } else {
-      $b = 15;
-    }
+    // if (isset($_POST['a'])) {
+    //   $a = (int)($_POST['a']);
+    // } else {
+    //   $a = 10;S
+    // }
 
-    $operation = intval(!empty($_GET['operation']) ? $_GET['operation'] : 0);
-    $operationSing = $_GET['operation'];
+    // if (isset($_POST['b'])) {
+    //   $b = (int)($_POST['b']);
+    // } else {
+    //   $b = 15;
+    // }
 
+    $a = isset($_POST['a']) ? $a = (int)($_POST['a']) : $a = 0;
+    $b = isset($_POST['b']) ? $b = (int)($_POST['b']) : $b = 0;
+    $operationSing = $_POST['operation'];
 
     function mathOperation ($a, $b, $operationSing) {
       switch ($operationSing) {
@@ -57,7 +58,7 @@
 
   <h2 class="calc">Простой калькулятор</h2>
 
-  <form method="$_GET">
+  <form method="post">
     <input name="a" type="number" value="<?=$a?>">
 
     <select name="operation">

@@ -13,10 +13,10 @@
 </head>
 <body>
   <?php
-    $a= isset($_GET['a']) ? (int)($_GET['a']) : 0;
-    $b = isset($_GET['b']) ? (int)($_GET['b']) : 0;
+    $a = isset($_POST['a']) ? (int)($_POST['a']) : 0;
+    $b = isset($_POST['b']) ? (int)($_POST['b']) : 0;
 
-    $operation = $_GET['operation'];
+    $operation = $_POST['operation'];
 
     function mathOperation ($a, $b, $operation) {
       switch ($operation) {
@@ -42,7 +42,7 @@
 
   <h2 class="calc">Простой калькулятор второй</h2>
 
-  <form method="$_GET">
+  <form method="post">
 
     <span>Число 1:</span><input name="a" type="number" value="<?= $a ?>">
       <button type="submit" name="operation" value="+"> + </button>
