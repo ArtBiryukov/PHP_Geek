@@ -26,9 +26,10 @@
     //   $b = 15;
     // }
 
-    $a = isset($_POST['a']) ? $a = (int)($_POST['a']) : $a = 0;
-    $b = isset($_POST['b']) ? $b = (int)($_POST['b']) : $b = 0;
-    $operationSing = $_POST['operation'];
+    $a = isset($_GET['a']) ? $a = (int)($_GET['a']) : $a = 0;
+    $b = isset($_GET['b']) ? $b = (int)($_GET['b']) : $b = 0;
+
+    $operationSing = isset($_GET['operation']) ? $operationSing = $_GET['operation'] : $operationSing = '+';
 
     function mathOperation ($a, $b, $operationSing) {
       switch ($operationSing) {
@@ -58,7 +59,7 @@
 
   <h2 class="calc">Простой калькулятор</h2>
 
-  <form method="post">
+  <form method="get">
     <input name="a" type="number" value="<?=$a?>">
 
     <select name="operation">

@@ -1,5 +1,5 @@
 <?php 
-include_once "config.php"; 
+  include_once "../modules/config.php"; 
 ?>
 
 <!DOCTYPE html>
@@ -8,30 +8,32 @@ include_once "config.php";
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>GB php Lesson6</title>
+  <link rel="stylesheet" href="./style/lightbox.min.css">
+  <link rel="stylesheet" href="./style/style.css">
+  <title>Магазин на PHP</title>
 
 </head>
 <body>
 
-<?php include_once "modules/header.php";?>
+<?php include_once "../modules/header.php";?>
 
   <main class='main content'>
     <h2 class="items-titel">Каталог автомобилей</h2>
     <div class="items-content">
 
       <?php
+      
       // Array ( [id] => 1 [title] => car1 [url_images] => 1.jpg [pice] => 0 [view] => 0 [description] => Just Car First. )
 
         while($data = mysqli_fetch_assoc($table)) { ?>
           <div class="item-content">
-            <a class="item-link" href="full.php?id=<?= $data['id'] ?>">
+            <a class="item-link" href="<?= DIR_BIG.$data['url_images'] ?>" data-lightbox="example-<?= $data['id'] ?>">
               <img class="small-photo photo" src="<?= DIR_SMALL.$data['url_images'] ?>" title="<?= $data['title'] ?>" alt="<?= $data['title'] ?>">
             </a>
 
             <div class="item-description">
             <h2 class="item-title">Название: 
-              <a href="full.php?file=<?= DIR_BIG.$data['url_images'] ?>"><?= $data['title'] ?></a> 
+              <a href="full.php?id=<?= $data['id'] ?>"><?= $data['title'] ?></a> 
             </h2>
               <div class="item-info">
                 <span class="item-view"><ion-icon name="eye-outline"></ion-icon><?= $data['view'] ?></span>
@@ -40,13 +42,14 @@ include_once "config.php";
 
             </div>
           </div> 
-        <?php } ?>
+        <?php }?>
     </div>
   </main>
 
 <?php 
-  include_once "modules/footer.php";
-  include_once "modules/scripts.php";
+  include_once "../modules/footer.php";
+  include_once "../modules/menu.php";
+  include_once "../modules/scripts.php";
 ?>
 
 </body>

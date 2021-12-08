@@ -1,6 +1,6 @@
 <?php
-const DIR_SMALL = 'img_small/';
-const DIR_BIG = 'img/';
+const DIR_SMALL = '../public/images/img/img_small/';
+const DIR_BIG = '../public/images/img/';
 
 /*Server*/
 const SERVER = "localhost";

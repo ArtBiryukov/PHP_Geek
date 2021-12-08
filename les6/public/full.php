@@ -1,7 +1,8 @@
 <?php 
-  include_once "config.php";
-
+  include_once "../modules/config.php"; 
+  
   $idImage = $_GET['id'];
+  
   $sqlImg = "SELECT * FROM images WHERE id='$idImage'";
 
   if (mysqli_query($connect, $sqlImg)) {
@@ -17,13 +18,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./style/style.css">
   <title>Full Image <?= $image['title'] ?></title>
 
 </head>
 <body>
 
-  <?php include_once "modules/header.php";?>
+  <?php include_once "../modules/header.php";?>
 
   <main class='main content'>
     <h2 class="items-titel">Карточка автомобиля <?= $image['title'] ?></h2>
@@ -50,8 +51,8 @@
   </main>
 
 <?php 
-  include_once "modules/footer.php";
-  include_once "modules/scripts.php";
+  include_once "../modules/footer.php";
+  include_once "../modules/scripts.php";
 ?>
 
 </body>
