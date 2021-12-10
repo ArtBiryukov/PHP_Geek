@@ -48,7 +48,6 @@
 
 <?php 
   include_once "../modules/footer.php";
-  include_once "../modules/menu.php";
   include_once "../modules/scripts.php";
 ?>
 
